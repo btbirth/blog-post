@@ -1,0 +1,19 @@
+<h1>Listing Blog Posts</h1>
+ 
+ 
+ 
+  <% @posts.each do |post| %>
+<p> 
+	<strong>Title: </strong><%= post.title %><br>
+	<strong>Author:</strong> <%= post.author %><br>
+
+
+	<strong> > </strong> <%= truncate(post.body, length: 10) %><br>
+	<%= link_to 'Show', post_path(post) %> 
+	<%= link_to 'Edit', edit_post_path(post) %>
+	<%= link_to 'Destroy', post_path(post), method: :delete, data: {confirm: 'Are you sure?'} %>
+	<%= image_tag(post.image, width:"50px") %>
+	<br><hr><br>
+</p> 
+  <% end %>
+

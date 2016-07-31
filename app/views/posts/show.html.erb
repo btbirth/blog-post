@@ -1,0 +1,49 @@
+<!-- post shower -->
+<p>
+  <strong>Title: </strong>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+  <strong> > </strong>
+  <%= @post.body %>
+</p>
+<p>
+  <%= image_tag(@post.image, width:"200px") %>
+</p>
+
+<!-- Comment shower -->
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<!-- comment adder -->
+
+<h2>Add a comment:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
