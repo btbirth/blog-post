@@ -1,13 +1,16 @@
+<div <% if comment.user == current_user %> style="background-color:lightgray" <%end%> >
 <p>
   <strong>Commenter:</strong>
   <%= comment.user.email %>
 </p>
+
  
 <p>
   <strong> >> </strong>
   <%= comment.body %>
 </p>
 <p>
+
 	<% if (current_user == comment.user || current_user == @post.user) %>
 		<%= link_to 'Destroy Comment', [comment.post, comment],
                method: :delete,
@@ -16,6 +19,7 @@
     <hr>
 
 </p>
+</div>
 
 
 
