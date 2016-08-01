@@ -7,7 +7,7 @@
  
 <p>
   <strong>Author:</strong>
-  <%= @post.author %>
+  <%= @post.user.email %>
 </p>
 
 <p>
@@ -22,6 +22,7 @@
 <!-- Comment shower -->
 <h3>Comments</h3>
 <%= render @post.comments %>
+
 
 <!-- comment adder -->
 

@@ -27,9 +27,12 @@ class PostsController < ApplicationController
 #create
 	def create
 		@post = Post.new(post_params)
- 
-		@post.save
-		redirect_to @post
+ 		@post.user = current_user
+ 		if @post.save
+			redirect_to @post
+		else
+			render :new
+		end
 	end
 #delete
 	def destroy
@@ -47,7 +50,7 @@ class PostsController < ApplicationController
 
 private
 	def post_params
-		params.require(:post).permit(:title, :author, :body, :image)
+		params.require(:post).permit(:title, :body, :image)
 	end
 
 end

@@ -1,15 +1,22 @@
 <p>
   <strong>Commenter:</strong>
-  <%= comment.commenter %>
+  <%= comment.user.email %>
 </p>
  
 <p>
-  <strong>Comment:</strong>
+  <strong> >> </strong>
   <%= comment.body %>
 </p>
 <p>
-	  <%= link_to 'Destroy Comment', [comment.post, comment],
+	<% if (current_user == comment.user || current_user == @post.user) %>
+		<%= link_to 'Destroy Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'REALLY?' } %>
+    <% end %>
+    <hr>
 
 </p>
+
+
+
+<!-- to wrap text in an html tag, select item and press: ctrl + shift + W -->

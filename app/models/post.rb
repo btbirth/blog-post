@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 	has_many :comments, dependent: :destroy
-	validates :author, :title, :image, :body, presence: true
+	belongs_to :user
+	validates  :title, :body, presence: true
 	before_create :title_case
 
 	protected
