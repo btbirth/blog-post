@@ -4,7 +4,7 @@
  
   <% @posts.each do |post| %>
 	<div class = "col-md-6">	
-		<div class = "jumbotron">
+		<div class = "jumbotron" style = "background-color:rgb(250,250,250)">
 			<strong>Poster:</strong><%= post.user.email %><br>
 	 		<strong>Title: </strong><%= post.title %><br>
 	 		<strong> > </strong> <%= truncate(post.body, length: 10) %><br>
